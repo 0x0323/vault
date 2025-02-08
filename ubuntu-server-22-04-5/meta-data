@@ -1,2 +1,2 @@
-instance-id: ubuntu-server-vault
-local-hostname: vault-autoinstall
+instance-id: vault-ubuntu
+local-hostname: vault-ubuntu
