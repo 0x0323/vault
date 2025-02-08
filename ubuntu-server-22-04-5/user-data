@@ -79,7 +79,7 @@ autoinstall:
       type: partition
     - device: disk-sda
       size: 2147483648
-      wipe: superblock
+      wipe: superblock-recursive
       number: 2
       preserve: false
       grub_device: false
