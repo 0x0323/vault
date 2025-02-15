@@ -38,10 +38,11 @@ autoinstall:
     allow-pw: true
   updates: security
   shutdown: reboot
-package_update: true
-package_upgrade: true
-packages:
-  - apt: [ufw]
 
-runcmd:
-  - [sh, -xc, 'echo $(date) '': hello world!''']
+  package_update: true
+  package_upgrade: true
+  packages:
+    - apt: [ufw]
+
+  runcmd:
+    - [sh, -xc, 'echo $(date) '': hello world!''']
