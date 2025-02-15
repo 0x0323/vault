@@ -43,6 +43,10 @@ autoinstall:
   package_upgrade: true
   packages:
     - ufw
+    - rsync
+    - logrotate
+    - cron
+    
 
   runcmd:
     - [sh, -xc, 'echo $(date) '': hello world!''']
