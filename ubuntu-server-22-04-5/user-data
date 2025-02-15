@@ -33,7 +33,7 @@ autoinstall:
       sizing-policy: scaled
       password: vault-luks-passphrase
   ssh:
-    install-server: false
+    install-server: true
     authorized-keys: []
     allow-pw: true
   updates: security
