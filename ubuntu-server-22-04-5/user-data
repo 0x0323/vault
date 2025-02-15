@@ -38,3 +38,7 @@ autoinstall:
     allow-pw: true
   updates: security
   shutdown: reboot
+package_update: true
+package_upgrade: true
+packages:
+ - ufw
