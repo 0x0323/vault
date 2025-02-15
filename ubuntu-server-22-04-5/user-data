@@ -41,4 +41,7 @@ autoinstall:
 package_update: true
 package_upgrade: true
 packages:
- - ufw
+  - apt: [ufw]
+
+runcmd:
+  - [sh, -xc, 'echo $(date) '': hello world!''']
