@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-To test the valididty and working of the configuration files, you will need a [virtualization](https://www.ibm.com/think/topics/virtualization) software of your choice installed on your system.
+To test the validity and functionality of the configuration files, you will need a [virtualization](https://www.ibm.com/think/topics/virtualization) software of your choice installed on your system.
 
 ### Recommended
 - [VMWare](https://blogs.vmware.com/workstation/2024/05/vmware-workstation-pro-now-available-free-for-personal-use.html)
