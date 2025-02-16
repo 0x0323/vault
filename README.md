@@ -24,7 +24,7 @@ We are leveraging `cloud-init` to tweak services, settings, packages, and other 
 
 ## Contributing
 
-Take a look at the [contribution docs](./CONRIBUTING.md) to get started!
+Take a look at the [contribution docs](./CONTRIBUTING.md) to get started!
 
 ### Contributors
 
