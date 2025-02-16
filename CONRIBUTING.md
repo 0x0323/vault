@@ -10,58 +10,64 @@ To test the validity and functionality of the configuration files, you will need
 - [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads)
   - Review general instructions on how to [set up a new VM with VirtualBox](https://www.tomshardware.com/how-to/set-up-virtual-machines-with-virtualbox)
 
-## Local setup
+## See it running
 
 ### Ubuntu Server 22.04.5
 
-These are the minimum specifications of the VM you will be creating for testing the configuration files:
-- Storage: 30 GB
-- Memory: 4 GB
+- These are the minimum specifications of the VM you will be creating for testing the configuration files:
+  - Storage: 30 GB
+  - Memory: 4 GB
+- Given below are some platform specific guidelines and tips while you create the VM on your system. 
 
-<details>
+  <details>
 
-<summary>VMWare</summary>
+  <summary>VMWare</summary>
 
-While creating a new VM as outlined above, below are some of the specifics you need to keep in mind:
-- For the *ISO image* field, use the downloaded Ubuntu Server 22.04.5 ISO image from your system
-- Allocate other resources as specified above
-- Leave other settings on their default values
+  While creating a new VM as outlined above, below are some of the specifics you need to keep in mind:
+  - For the *ISO image* field, use the downloaded Ubuntu Server 22.04.5 ISO image from your system
+  - Allocate other resources as specified above
+  - Leave other settings on their default values
 
-> *Tested on VMWare Workstation Pro 17*
+  > *Tested on VMWare Workstation Pro 17*
 
-</details>
+  </details>
 
-<details>
+  <details>
 
-<summary>VirtualBox</summary>
+  <summary>VirtualBox</summary>
 
-While creating a new VM as outlined above, below are some of the specifics you need to keep in mind:
-- Giving a unique name to the VM is mandatory
-- For the *ISO image* field, use the downloaded Ubuntu Server 22.04.5 ISO image from your system
-- You can leave the *Unattended install* section as is
-- Allocate other resources as specified above  
+  While creating a new VM as outlined above, below are some of the specifics you need to keep in mind:
+  - Giving a unique name to the VM is mandatory
+  - For the *ISO image* field, use the downloaded Ubuntu Server 22.04.5 ISO image from your system
+  - You can leave the *Unattended install* section as is
+  - Allocate other resources as specified above  
 
-> *Tested on Oracle VirtualBox 7* 
+  > *Tested on Oracle VirtualBox 7* 
 
-</details>
+  </details>
 
-<br />
+- Right before the VM boots up, you are required to modify a kernel boot parameter. Pressing `e` on the GRUB menu should take you to the screen that allows you to do the same. Change the `linux` parameter as follows:
 
-Right before the VM boots up, you are required to modify a kernel boot parameter. Pressing `e` on the GRUB menu should take you to the screen that allows you to do the same. Change the `linux` parameter as follows:
+  <details>
 
-<details>
+  <summary>VirtualBox</summary>
 
-<summary>VirtualBox</summary>
+    Change `linux /casper/vmlinuz  ---` to `linux /casper/vmlinuz quiet autoinstall ds=nocloud\;s=https://raw.githubusercontent.com/nullNEU/vault/refs/heads/main/ubuntu-server-22-04-5/ ---`
 
-  Change `linux /casper/vmlinuz  ---` to `linux /casper/vmlinuz quiet autoinstall ds=nocloud\;s=https://raw.githubusercontent.com/nullNEU/vault/refs/heads/main/ubuntu-server-22-04-5/ ---`
+  </details>
 
-</details>
+  <details>
+  <summary>VirtualBox</summary>
 
-<details>
-<summary>VirtualBox</summary>
-
-Change `linux /casper/vmlinuz autoinstall ds=nocloud\;s=/cdrom/ --- quiet splash noprompt noshell automatic-ubiquity debian-installer/locale=en_US keyboard-configuration/layoutcode=us languagechooser/language-name=English localechooser/supported-locales=en_US.UTF-8 countrychooser/shortlist=CT --` to `linux /casper/vmlinuz quiet autoinstall ds=nocloud\;s=https://raw.githubusercontent.com/nullNEU/vault/refs/heads/main/ubuntu-server-22-04-5/ --`
-</details>
+  Change `linux /casper/vmlinuz autoinstall ds=nocloud\;s=/cdrom/ --- quiet splash noprompt noshell automatic-ubiquity debian-installer/locale=en_US keyboard-configuration/layoutcode=us languagechooser/language-name=English localechooser/supported-locales=en_US.UTF-8 countrychooser/shortlist=CT --` to `linux /casper/vmlinuz quiet autoinstall ds=nocloud\;s=https://raw.githubusercontent.com/nullNEU/vault/refs/heads/main/ubuntu-server-22-04-5/ --`
+  </details>
+- Press `F10` to continute booting with the added configuration. Your VM will take some time to apply the configuration according to the configuration files in the repository.
+- As an intermediate step, you will be required to enter the [LUKS](https://itsfoss.com/luks/) passphrase which can be found [here](https://github.com/nullNEU/vault/blob/427c28141631d569ea7250d9a2bc05eef341bd8c/ubuntu-server-22-04-5/user-data#L34).
+- Once the system has finished booting, you will be presented with a prompt simliar to the following: 
+  ```bash
+  vault-ubuntu-minimal login:
+  ```
+  Once you enter the login credentials for the system, you will be able to access the hardened OS.
 
 ## Taking up an issue
 All issues about this project are tracked as [GitHub issues on this repository](https://github.com/nullNEU/vault/issues). Once you have a fair idea of what tasks have been completed, what are in progress, and what the project is about, you can go ahead and pick an issue to work on.
