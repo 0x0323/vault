@@ -46,7 +46,3 @@ autoinstall:
     - rsync
     - logrotate
     - cron
-    
-
-  runcmd:
-    - [sh, -xc, 'echo $(date) '': hello world!''']
