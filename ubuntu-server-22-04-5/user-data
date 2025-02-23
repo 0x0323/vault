@@ -47,6 +47,6 @@ autoinstall:
     - logrotate
     - cron
 
-  bootcmd:
+  runcmd:
     - ufw allow 22/tcp
     - ufw enable
