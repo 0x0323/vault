@@ -48,6 +48,12 @@ autoinstall:
     - cron
 
 runcmd:
-- ufw allow 22/tcp
-- ufw enable
-- echo "Installation complete!" >> /home/vault/testfile
+  - ufw allow 22/tcp
+  - ufw enable
+  - echo "Installation complete!" >> /home/vault/testfile
+
+write_files:
+  - content: |
+      "hello"
+    path: /home/vault/testfile2
+    permissions: '0755'
