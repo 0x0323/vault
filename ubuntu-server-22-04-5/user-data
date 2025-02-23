@@ -47,7 +47,7 @@ autoinstall:
     - logrotate
     - cron
 
-  runcmd:
-    - ufw allow 22/tcp
-    - ufw enable
-    - echo "Installation complete!" >> /home/vault/testfile
+runcmd:
+- ufw allow 22/tcp
+- ufw enable
+- echo "Installation complete!" >> /home/vault/testfile
