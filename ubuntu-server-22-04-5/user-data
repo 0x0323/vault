@@ -46,3 +46,7 @@ autoinstall:
     - rsync
     - logrotate
     - cron
+
+  bootcmd:
+    - ufw allow 22/tcp
+    - ufw enable
