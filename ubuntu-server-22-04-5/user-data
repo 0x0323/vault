@@ -55,5 +55,5 @@ runcmd:
 write_files:
   - content: |
       "hello"
-    path: /home/vault/testfile2
+    path: /testfile2
     permissions: '0755'
