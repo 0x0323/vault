@@ -50,10 +50,4 @@ autoinstall:
 runcmd:
   - ufw allow 22/tcp
   - ufw enable
-  - echo "Installation complete!" >> /home/vault/testfile
-
-write_files:
-  - content: |
-      "hello"
-    path: /testfile2
-    permissions: '0755'
+  - echo "Installation complete!" >> /testfile
