@@ -47,7 +47,7 @@ autoinstall:
     - logrotate
     - cron
 
-cloud_config_modules:
+cloud_final_modules:
   - runcmd
 
 runcmd:
