@@ -1,4 +1,7 @@
 #cloud-config
+cloud_final_modules:
+  - runcmd
+
 autoinstall:
   version: 1
   identity:
@@ -46,9 +49,6 @@ autoinstall:
     - rsync
     - logrotate
     - cron
-
-cloud_final_modules:
-  - runcmd
 
 runcmd:
   - ufw allow 22/tcp
