@@ -47,14 +47,9 @@ autoinstall:
     - logrotate
     - cron
 
-  write_files:
-    - path: /var/lib/cloud/scripts/per-once/ufw-setup.sh
-      content: |
-        #!/bin/bash
-        ufw allow 22/tcp
-        ufw enable
-        echo "This is a test" >> /run/test.txt
-      permissions: '0755'
+cloud_config_modules:
+  - runcmd
 
-  runcmd:
-    - [ sh, "/run/scripts/ufw-setup.sh" ]
+runcmd:
+  - ufw allow 22/tcp
+  - ufw enable
