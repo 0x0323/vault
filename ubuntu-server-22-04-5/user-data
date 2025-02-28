@@ -1,5 +1,5 @@
 #cloud-config
-cloud_final_modules:
+cloud_config_modules:
   - runcmd
 
 autoinstall:
