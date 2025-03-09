@@ -1,6 +1,4 @@
 #cloud-config
-cloud_config_modules:
-  - runcmd
 
 autoinstall:
   version: 1
@@ -51,6 +49,4 @@ autoinstall:
     - cron
 
 runcmd:
-  - ufw allow 22/tcp
-  - ufw enable
-  - echo "test" >> /testfile.txt
+- echo "test" >> /etc/testfile.txt
