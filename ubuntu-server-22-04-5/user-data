@@ -1,4 +1,6 @@
 #cloud-config
+runcmd:
+- touch /etc/aaa_testfile
 
 autoinstall:
   version: 1
@@ -47,6 +49,3 @@ autoinstall:
     - rsync
     - logrotate
     - cron
-
-runcmd:
-- echo "test" >> /etc/testfile.txt
