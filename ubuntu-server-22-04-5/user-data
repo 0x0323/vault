@@ -1,12 +1,9 @@
 #cloud-config
-
 cloud_init_modules:
 - write_files
 - scripts-per-once
-
 cloud-config-modules
 - runcmd
-
 autoinstall:
   version: 1
   identity:
