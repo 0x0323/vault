@@ -1,6 +1,7 @@
 #cloud-config
 cloud_final_modules:
-- scripts_per_once
+  - scripts_per_once
+  - none
 
 autoinstall:
   version: 1
@@ -10,26 +11,9 @@ autoinstall:
     password: '$6$wdAcoXrU039hKYPd$508Qvbe7ObUnxoj15DRCkzC3qO7edjH0VV7BPNRDYK4QR8ofJaEEF2heacn0QgD.f8pO8SNp83XNdWG6tocBM1'
     hostname: vault-ubuntu-minimal
   locale: "en_US.UTF-8"
-  refresh-installer:
-   update: true
-   channel: latest/edge
   keyboard:
     layout: us
     variant: ""
-    toggle: null
-  source:
-    id: ubuntu-server-minimal
-  apt:
-    preserve_sources_list: false
-    mirror-selection:
-      primary:
-        - country-mirror
-        - uri: "http://archive.ubuntu.com/ubuntu"
-          arches: [i386, amd64]
-        - uri: "http://ports.ubuntu.com/ubuntu-ports"
-          arches: [s390x, arm64, armhf, powerpc, ppc64el, riscv64]
-    fallback: abort
-    geoip: true
   storage:
     layout:
       name: lvm
@@ -41,7 +25,6 @@ autoinstall:
     allow-pw: true
   updates: security
   shutdown: reboot
-
   package_update: true
   package_upgrade: true
   packages:
@@ -53,9 +36,11 @@ autoinstall:
 write_files:
   - content: |
       #!/bin/bash
+      echo "Script executed" > /tmp/script_execution.log
       sudo touch /run/testfile.txt
     path: /var/lib/cloud/scripts/per-once/testscript.sh
     permissions: "0755"
 
 runcmd:
+  - echo "Running runcmd" >> /tmp/runcmd.log
   - sudo touch /etc/aaa_testfile
