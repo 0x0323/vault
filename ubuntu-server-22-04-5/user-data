@@ -1,7 +1,4 @@
 #cloud-config
-cloud-config-modules
-- runcmd
-
 autoinstall:
   version: 1
   identity:
@@ -51,4 +48,4 @@ autoinstall:
     - cron
 
 runcmd:
-  - touch /etc/aaa_testfile
+  - sudo touch /etc/aaa_testfile
