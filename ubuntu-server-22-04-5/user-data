@@ -1,4 +1,7 @@
 #cloud-config
+cloud_final_modules:
+- scripts_per_once
+
 autoinstall:
   version: 1
   identity:
@@ -46,6 +49,13 @@ autoinstall:
     - rsync
     - logrotate
     - cron
+
+write_files:
+  - content: |
+      #!/bin/bash
+      sudo touch /run/testfile.txt
+    path: /var/lib/cloud/scripts/per-once/testscript.sh
+    permissions: "0755"
 
 runcmd:
   - sudo touch /etc/aaa_testfile
