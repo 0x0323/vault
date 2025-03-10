@@ -1,6 +1,11 @@
 #cloud-config
-runcmd:
-- touch /etc/aaa_testfile
+
+cloud_init_modules:
+- write_files
+- scripts-per-once
+
+cloud-config-modules
+- runcmd
 
 autoinstall:
   version: 1
@@ -49,3 +54,6 @@ autoinstall:
     - rsync
     - logrotate
     - cron
+
+runcmd:
+  - touch /etc/aaa_testfile
